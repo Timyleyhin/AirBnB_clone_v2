@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
-"""
-Amenity class representation module
-"""
+"""This is the amenity class"""
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 
 
-class Amenity(BaseModel):
+class Amenity(BaseModel, Base):
+    """This is the class for Amenity
+    Attributes:
+        name: input name
     """
-    Definition of class Amenity that inherits from BaseModel
-    """
+    __tablename__ = 'amenities'
+    name = Column(String(128), nullable=False)
 
-    name = ""
+    # place_amenities = relationship('Place', secondary='place_amenity')
